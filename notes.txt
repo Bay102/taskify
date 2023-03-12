@@ -1,0 +1,58 @@
+
+//? TYPES // 
+
+let any: any // can be any-type, but not recommended , why use typescript then? 
+
+let personName: unknown; // recommend instead of any, use if your not sure
+
+let name:string; 
+let age:number;
+let names: number | string;  // Union // can contain both types
+let isCoder: boolean;
+let hobbies:string[];  // array of strings
+let hobbys:number[];  // array of numbers
+let role:[number, string]; // Tupal // will container one number and one string
+
+let person:Object; // not recommended 
+
+type Person= {
+  name: string,
+  age: number,
+  race?: string,  // questionMark makes the property optional 
+}   // correct way to type an object
+
+let printNamesOk: (name:string) => void // return type
+let printNames: (name:string) => never // never returns nothing, unlike void witch returns undefined 
+ 
+let people:Person[]; // array of Objects 
+
+
+// Functions // 
+function printName(name:string) {  
+  console.log(name);
+  
+}
+
+
+// Difference between Type and Interface // 
+
+interface People {
+name: string,
+age?: number, 
+}
+
+interface Guy extends People {
+  profession: string ;
+}
+
+
+type X = {
+  a: string;
+  b: number;
+}
+
+
+type Y = X & {   // will include type X types 
+  c: string;
+  d: number;
+}
